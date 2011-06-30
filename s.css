@@ -1,0 +1,93 @@
+/* ===========
+  Greetings.
+  Wanna take a look backstage? s.scss
+=========== */
+body {
+  font-family: sans-serif;
+  position: relative; }
+
+html, body, #slides_wrapper, .slide {
+  height: 760px;
+  width: 1024px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; }
+
+a {
+  color: #007BC6; }
+
+#slides_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5120px;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  -moz-transition: -moz-transform .5s ease-in-out;
+  -o-transition: -o-transform .5s ease-in-out;
+  -ms-transition: -ms-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out; }
+
+.slide {
+  position: relative;
+  float: left;
+  background: #FAFAFA;
+  border: 10px solid #333;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  display: table;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+h1 {
+  text-align: center;
+  font-size: 142px;
+  color: #999;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%; }
+  h1 small {
+    display: block;
+    font-size: 30px;
+    line-height: 1.5; }
+
+#slides_wrapper.slide-1 {
+  -webkit-transform: translate3d(-0px, 0, 0);
+  -moz-transform: translateX(-0px);
+  -o-transform: translateX(-0px);
+  -ms-transform: translateX(-0px);
+  transform: translateX(-0px); }
+
+#slides_wrapper.slide-2 {
+  -webkit-transform: translate3d(-1024px, 0, 0);
+  -moz-transform: translateX(-1024px);
+  -o-transform: translateX(-1024px);
+  -ms-transform: translateX(-1024px);
+  transform: translateX(-1024px); }
+
+#slides_wrapper.slide-3 {
+  -webkit-transform: translate3d(-2048px, 0, 0);
+  -moz-transform: translateX(-2048px);
+  -o-transform: translateX(-2048px);
+  -ms-transform: translateX(-2048px);
+  transform: translateX(-2048px); }
+
+#slides_wrapper.slide-4 {
+  -webkit-transform: translate3d(-3072px, 0, 0);
+  -moz-transform: translateX(-3072px);
+  -o-transform: translateX(-3072px);
+  -ms-transform: translateX(-3072px);
+  transform: translateX(-3072px); }
+
+#slides_wrapper.slide-5 {
+  -webkit-transform: translate3d(-4096px, 0, 0);
+  -moz-transform: translateX(-4096px);
+  -o-transform: translateX(-4096px);
+  -ms-transform: translateX(-4096px);
+  transform: translateX(-4096px); }

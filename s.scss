@@ -1,0 +1,84 @@
+//
+// Sass file
+// Usage : 
+// $ gem install sass compass
+// $ sass --watch s.scss:s.css --compass
+// 
+// Message for the curious minded:
+/* ===========
+  Greetings.
+  Wanna take a look backstage? s.scss
+=========== */
+
+@import "compass/css3";
+
+$nb_slides: 5;
+$slide_width: 1024px;
+
+body {
+  font-family: sans-serif;
+  position: relative;
+}
+html, body, #slides_wrapper, .slide {
+  height: 760px;
+  width: $slide_width;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+a {
+  color: #007BC6;
+}
+#slides_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $nb_slides * $slide_width;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  -moz-transition: -moz-transform .5s ease-in-out;
+  -o-transition: -o-transform .5s ease-in-out;
+  -ms-transition: -ms-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+}
+  .slide {
+    position: relative;
+    float: left;
+    background: #FAFAFA;
+    border: 10px solid #333;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    display: table;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+h1 {
+  text-align: center;
+  font-size: 142px;
+  color: #999;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  small {
+    display: block;
+    font-size: 30px;
+    line-height: 1.5;
+  }
+}
+
+@for $i from 1 through $nb_slides {
+  #slides_wrapper.slide-#{$i} {
+    -webkit-transform: translate3d(-(#{$slide_width * ($i - 1)}), 0, 0);
+    -moz-transform: translateX(-(#{$slide_width * ($i - 1)}));
+    -o-transform: translateX(-(#{$slide_width * ($i - 1)}));
+    -ms-transform: translateX(-(#{$slide_width * ($i - 1)}));
+    transform: translateX(-(#{$slide_width * ($i - 1)}));
+  }
+}
