@@ -31,7 +31,6 @@ function prevSlide() {
     return; // This is the first slide, there is no going back.
   }
     
-    
   var prev = $('#' + current).prev();
   $('#' + current).removeClass('current');
   prev.addClass('current');
@@ -48,12 +47,17 @@ $(document).ready(function() {
   // Bind events to displayed slide
   $('.slide').bind("click", function() {
     nextSlide();
+  }).tap(function(e) {
+    e.preventDefault();
+    nextSlide();
   }).swipeRight(function(e) {
     e.preventDefault();
     prevSlide();
   }).swipeLeft(function(e) {
     e.preventDefault();
     nextSlide();
+  }).bind('touchstart', function(e) {
+    e.preventDefault();
   });
 });
 
