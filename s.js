@@ -1,3 +1,10 @@
+// Animation listeners
+document.getElementById('slides_wrapper').addEventListener( 'webkitAnimationEnd', function( event ) {
+  $('#slides_wrapper').removeClass('first-slide-nogo');
+}, false );
+document.getElementById('slides_wrapper').addEventListener( 'animationend', function( event ) {
+  $('#slides_wrapper').removeClass('first-slide-nogo');
+}, false );
 
 // Go to next slide
 function nextSlide() {
@@ -19,8 +26,11 @@ function nextSlide() {
 function prevSlide() {
   var current = $('.current').attr('id');
   
-  if (current == "slide-1")
+  if (current == "slide-1") {
+    $('#slides_wrapper').addClass('first-slide-nogo');
     return; // This is the first slide, there is no going back.
+  }
+    
     
   var prev = $('#' + current).prev();
   $('#' + current).removeClass('current');

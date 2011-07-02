@@ -21,13 +21,43 @@ a {
   top: 0;
   left: 0;
   width: 5120px;
-  -webkit-transition: -webkit-transform .5s ease-in-out;
-  -moz-transition: -moz-transform .5s ease-in-out;
-  -o-transition: -o-transform .5s ease-in-out;
-  -ms-transition: -ms-transform .5s ease-in-out;
-  transition: transform .5s ease-in-out; }
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0, 0.25, 0.5, 1);
+  -moz-transition: -moz-transform 0.5s cubic-bezier(0, 0.25, 0.5, 1);
+  -o-transition: -o-transform 0.5s cubic-bezier(0, 0.25, 0.5, 1);
+  -ms-transition: -ms-transform 0.5s cubic-bezier(0, 0.25, 0.5, 1);
+  transition: transform 0.5s cubic-bezier(0, 0.25, 0.5, 1);
+  -webkit-animation-duration: .3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-duration: .3s;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-fill-mode: forwards; }
+
+.first-slide-nogo {
+  -webkit-animation-name: first-slide-nogo;
+  -moz-animation-name: first-slide-nogo;
+  -o-animation-name: first-slide-nogo; }
+
+/* Animation triggered when the user tries to go back on the first slide */
+@-webkit-keyframes first-slide-nogo {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0); }
+
+  50% {
+    -webkit-transform: translate3d(30px, 0, 0); }
+
+  0% {
+    -webkit-transform: translate3d(0, 0, 0); } }
+
+@-moz-keyframes first-slide-nogo {
+  from {
+    -moz-transform: translateX(0); }
+
+  to {
+    -moz-transform: translateX(30px); } }
 
 .slide {
+  -webkit-transform: translateZ(0);
   position: relative;
   float: left;
   background: #FAFAFA;
@@ -57,6 +87,7 @@ h1 {
     font-size: 30px;
     line-height: 1.5; }
 
+/* Slide to slide transitions */
 #slides_wrapper.slide-1 {
   -webkit-transform: translate3d(-0px, 0, 0);
   -moz-transform: translateX(-0px);

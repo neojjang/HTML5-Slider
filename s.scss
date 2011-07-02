@@ -34,13 +34,36 @@ a {
   top: 0;
   left: 0;
   width: $nb_slides * $slide_width;
-  -webkit-transition: -webkit-transform .5s ease-in-out;
-  -moz-transition: -moz-transform .5s ease-in-out;
-  -o-transition: -o-transform .5s ease-in-out;
-  -ms-transition: -ms-transform .5s ease-in-out;
-  transition: transform .5s ease-in-out;
+  -webkit-transition: -webkit-transform .5s cubic-bezier(0, 0.25, 0.5, 1);
+  -moz-transition: -moz-transform .5s cubic-bezier(0, 0.25, 0.5, 1);
+  -o-transition: -o-transform .5s cubic-bezier(0, 0.25, 0.5, 1);
+  -ms-transition: -ms-transform .5s cubic-bezier(0, 0.25, 0.5, 1);
+  transition: transform .5s cubic-bezier(0, 0.25, 0.5, 1);
+  -webkit-animation-duration: .3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-duration: .3s;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-fill-mode: forwards;
 }
+  .first-slide-nogo {
+    -webkit-animation-name: first-slide-nogo;
+    -moz-animation-name: first-slide-nogo;
+    -o-animation-name: first-slide-nogo;
+  }
+  /* Animation triggered when the user tries to go back on the first slide */
+  @-webkit-keyframes first-slide-nogo {
+    0%  { -webkit-transform: translate3d(0, 0, 0); }
+    50% { -webkit-transform: translate3d(30px, 0, 0); }
+    0%  { -webkit-transform: translate3d(0, 0, 0); }
+  }
+  @-moz-keyframes first-slide-nogo {
+    from { -moz-transform: translateX(0); }
+    to   { -moz-transform: translateX(30px); }
+  }
+  
   .slide {
+    -webkit-transform: translateZ(0);
     position: relative;
     float: left;
     background: #FAFAFA;
@@ -73,6 +96,7 @@ h1 {
   }
 }
 
+/* Slide to slide transitions */
 @for $i from 1 through $nb_slides {
   #slides_wrapper.slide-#{$i} {
     -webkit-transform: translate3d(-(#{$slide_width * ($i - 1)}), 0, 0);
